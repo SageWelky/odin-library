@@ -8,20 +8,27 @@ html, body {
   overflow-x: hidden;
 }
 
+#add-book-button {
+  margin: 20px auto;
+}
+
 #application-container {
   height: 100%;
   width: 100%;
   font-family: sans-serif;
-  /* display: grid;
-  grid-template-rows: min-content; */
+  display: grid;
+  grid-template-rows: min-content;
+  row-gap: 10px;
 }
 
 
 #library-shelf {
+  height: fit-content;
   width: 90%;
   gap: 10px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  margin: 0px auto;
 }
 
 .book-container {

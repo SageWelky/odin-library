@@ -12,6 +12,7 @@ let addBookButton = document.getElementById("add-book-button");
 let cancelAddBook = document.getElementById("cancel-add-book");
 let addBookDialog = document.getElementById("add-book-dialog");
 let libraryShelf = document.getElementById("library-shelf");
+let bookForm = document.getElementById("add-book-form");
 
 addBookButton.addEventListener( "click", () => {
 
@@ -23,12 +24,13 @@ cancelAddBook.addEventListener( "click", () => {
   addBookDialog.close();
 
 });
-addBookDialog.addEventListener( "submit", () => {
+addBookDialog.addEventListener( "submit", (event) => {
 
   isbn++
   let addedBookReadBool = (document.getElementById("book-status").value === "Read" ) ? true : false;
   let addedBook = new Book(document.getElementById("book-title").value, document.getElementById("book-author").value, parseInt(document.getElementById("book-pages").value), addedBookReadBool);
   addBooktoLibraryArray(addedBook);
+  bookForm.reset();
 
 });
 
