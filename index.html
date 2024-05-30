@@ -8,7 +8,54 @@
 </head>
 <body>
 
+<div id="application-container">
 
+  <button id="add-book-button">Add Book</button>
+
+
+  <dialog id="add-book-dialog">
+    <form method="dialog" id="add-book-form">
+
+      <div id="form-input-container">
+
+        <div id="book-title-group" class="input-group">
+          <label for="book-title">Title:</label>
+          <input type="text" id="book-title" name="book-title" placeholder="Book Name" required="required">
+        </div>
+
+        <div id="form-author-group" class="input-group">
+          <label for="book-author">Author:</label>
+          <input type="text" id="book-author" name="book-author" placeholder="Book Author" required="required">
+        </div>
+
+        <div id="form-pages-group" class="input-group">
+          <label for="book-pages">Length:</label>
+          <input type="number" id="book-pages" name="book-pages" placeholder="Number of Pages" required="required">
+        </div>
+
+        <div id="form-status-group" class="input-group">
+          <label for="book-status">Status:</label>
+          <select id="book-status" name="book-status" placeholder="Read or Not" required>
+            <option selected></option>
+            <option>Read</option>
+            <option>Unread</option>
+          </select>
+        </div>
+
+      </div>
+
+      <button id="submit-added-book-button" type="submit">Add Book</button>
+      <button id="cancel-add-book" type="reset">Cancel</button>
+
+    </form>
+  </dialog>
+
+  <div id="library-shelf">
+  </div>
+
+
+
+</div>
 
 </body>
 <script defer src="./scripts.js"></script>
