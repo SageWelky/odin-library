@@ -87,14 +87,14 @@ function updateShelfRender() {
     statusUpdateButton.setAttribute( "id", `toggle-read-button-${isbn.toString()}` );
     statusUpdateButton.setAttribute( "class", "shelf-button" );
 
-    bindEvent(libraryArray[i], statusUpdateButton, bookStatus);
+
 
     removeBookButton = document.createElement( "button" );
     removeBookButton.textContent = "Remove Book";
     removeBookButton.setAttribute( "id", `toggle-read-button-${isbn.toString()}` );
     removeBookButton.setAttribute( "class", "shelf-button" );
 
-
+    bindEvent(libraryArray[i], statusUpdateButton, bookStatus, removeBookButton, i, bookContainer);
 
     infoContainer.appendChild( bookTitle );
     infoContainer.appendChild( bookAuthor );
@@ -115,8 +115,13 @@ function updateShelfRender() {
 }
 
 
-function bindEvent(bookInstance, buttonInstance, bookStatusInstance) {
-  buttonInstance.addEventListener( "click", ( event ) => {
-    bookInstance.toggleReadBool( event, bookStatusInstance );
+function bindEvent(bookInstanceInArray, buttonInstanceToggle, bookStatusInstance, buttonInstanceRemoval, removalIndex, bookInstanceInDisplay) {
+  buttonInstanceToggle.addEventListener( "click", ( event ) => {
+    bookInstanceInArray.toggleReadBool( event, bookStatusInstance );
+  });
+  buttonInstanceRemoval.addEventListener( "click", () => {
+    libraryArray.splice(removalIndex, 1);
+    i--
+    bookInstanceInDisplay.remove();
   });
 }
